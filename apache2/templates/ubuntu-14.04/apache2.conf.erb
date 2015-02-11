@@ -231,6 +231,11 @@ LogFormat "%v %A %a %u %{%Y-%m-%dT%H:%M:%S}t %X %s %>s %B %D cookie \"Referer\" 
 
 ServerName 127.0.0.1
 
+# For Java Application
+ProxyPass / http://localhost:8080/ retry=0
+ProxyPassReverse / http://localhost:8080/
+ProxyPreserveHost on
+
 # Include of directories ignores editors' and dpkg's backup files,
 # see README.Debian for details.
 

@@ -218,6 +218,11 @@ LogFormat "%v %A %a %u %{%Y-%m-%dT%H:%M:%S}t %c %s %>s %B %D cookie \"Referer\" 
 
 ServerName 127.0.0.1
 
+# For Java Application
+ProxyPass / http://localhost:8080/ retry=0
+ProxyPassReverse / http://localhost:8080/
+ProxyPreserveHost on
+
 # Include generic snippets of statements
 Include <%= node[:apache][:dir] %>/conf.d/
 
